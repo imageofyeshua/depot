@@ -1,5 +1,4 @@
 Product.delete_all
-# . . .
 product = Product.create(title: 'Rails Scales!',
   description:
   %(<p>
@@ -12,4 +11,16 @@ product.image.attach(io: File.open(
   filename: 'ruby.jpg')
 
 product.save!
-# . . .
+product = Product.create(title: 'Rust Dominates!',
+  description:
+  %(<p>
+  Rust is blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other languages.
+  Rust’s rich type system and ownership model guarantee memory-safety and thread-safety — enabling you to eliminate many classes of bugs at compile-time.
+  </p>),
+  price: 54.95)
+
+product.image.attach(io: File.open(
+  Rails.root.join('db', 'images', 'rust.jpg')),
+  filename: 'rust.jpg')
+
+product.save!
