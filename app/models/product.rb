@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   has_one_attached :image
   after_commit -> { broadcast_refresh_later_to "products" }
   validates :title, :description, :image, presence: true
-  validates :title, uniquness: true
+  validates :title, uniqueness: true
   validate :acceptable_image
 
   def acceptable_image
